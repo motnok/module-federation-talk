@@ -65,11 +65,11 @@ module.exports = {
       exposes: {},
       shared: {
         react: {
-          // singleton: true,
+          singleton: true,
           requiredVersion: deps.react,
         },
         "react-dom": {
-          // singleton: true,
+          singleton: true,
           requiredVersion: deps["react-dom"],
         },
       },
