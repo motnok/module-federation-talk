@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { BarItem } from "./components/BarItem";
 
 export function BarComponent() {
 
@@ -8,11 +9,9 @@ export function BarComponent() {
     <fieldset style={{backgroundColor: 'greenyellow'}}>
       <h2>This is bar!</h2>
       <button onClick={() => setBars((prev) => [...prev, "BAR"])}>Add bar!</button>
-      <React.Suspense fallback={<div>Loading...</div>}>
         <ul>
-          {bars.map((bar, index) => <li key={index}>{bar}</li>)}
+          {bars.map((bar, index) => <BarItem key={index}>{bar}</BarItem>)}
         </ul>
-      </React.Suspense>
     </fieldset>
   );
 }
