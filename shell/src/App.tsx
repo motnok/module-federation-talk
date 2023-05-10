@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 
 import { ErrorBoundary } from 'react-error-boundary';
 
-import FooComponent from "foo/Component";
-import BarComponent from "bar/Component";
 import { ErrorFallback } from "./components/ErrorFallback";
 
 // declare global {
@@ -13,6 +11,10 @@ import { ErrorFallback } from "./components/ErrorFallback";
 //   }
 // }
 
+const FooComponent = React.lazy(() => import('foo/Component'));
+const BarComponent = React.lazy(() => import('bar/Component'));
+
+
 const App = () => {
 
   return (
@@ -20,10 +22,16 @@ const App = () => {
       <h1>I'm the shell - Here be some modules</h1>
       
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <FooComponent />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <FooComponent />
+        </React.Suspense>
       </ErrorBoundary>
       <br />
-      <BarComponent />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <BarComponent />
+        </React.Suspense>
+      </ErrorBoundary>
     </fieldset>
   );
 }
