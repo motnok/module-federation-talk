@@ -40,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/is-even": "^1.0.0",
+    "is-even": "^1.0.0"
   }
 }
