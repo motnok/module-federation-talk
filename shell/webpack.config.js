@@ -58,9 +58,8 @@ module.exports = {
       name: "core_host",
       filename: "remoteEntry.js",
       remotes: {
-        //boilerplateRemote: "boilerplateRemote@[window.remotes.boilerplateRemote]"
-        foo: "foo@http://localhost:3000/remoteEntry.js",
-        bar: "bar@http://localhost:3001/remoteEntry.js",
+        foo: "foo@[window.remotes.foo]",
+        bar: "bar@[window.remotes.bar]",
       },
       exposes: {},
       shared: {

@@ -5,11 +5,11 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { ErrorFallback } from "./components/ErrorFallback";
 
-// declare global {
-//   interface Window {
-//     remotes: Record<string, string>;
-//   }
-// }
+declare global {
+  interface Window {
+    remotes: Record<string, string>;
+  }
+}
 
 const FooComponent = React.lazy(() => import('foo/Component'));
 const BarComponent = React.lazy(() => import('bar/Component'));
